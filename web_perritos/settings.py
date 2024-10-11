@@ -135,3 +135,4 @@ MEDIA_URL = '/media/'
 
 # Ruta en tu sistema de archivos donde se almacenarán los archivos de medios
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

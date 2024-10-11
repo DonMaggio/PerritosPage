@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de {{ perro.nombre }}</title>
+</head>
+<body>
+    <h1>{{ perro.nombre }}</h1>
+    <p>Género: {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
+    <p>Edad: {{ perro.edad }} años</p>
+    <p>Historia: {{ perro.historia }}</p>
+    <p>Talla: {{ perro.talla }}</p>
+    {% for foto in perro.fotos.all %}
+        <img src="{{ foto.imagen.url }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Perritos</title>
+</head>
+<body>
+    <h1>Perros Disponibles para Adopción</h1>
+    <ul>
+        {% for perro in perros %}
+            <li>
+                <h2>{{ perro.nombre }}</h2>
+                <p>Género: {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
+                <p>Edad: {{ perro.edad }} años</p>
+                <p>Historia: {{ perro.historia }}</p>
+                {% for foto in perro.fotos.all %}
+                    <img src="{{ foto.imagen.url }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
