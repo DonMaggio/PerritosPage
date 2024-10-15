@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% if messages %}
+    <div class="alert alert-success" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <label for="file_field">Añadir nuevas imágenes:</label>
+            {{ imageform.file_field }}
+        </div>
+        <button type="submit">Guardar cambios</button>
+    </form>
+
+    <h2>Imágenes actuales:</h2>
+    <ul>
+        {% for foto in perro_fotos %}
+            <li><img src="{{ foto.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}"></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
+
+
+{% if messages %}
+<div class="alert alert-success" role="alert">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+        <label for="file_field">Añadir nuevas imágenes:</label>
+        {{ imageform.file_field }}
+    </div>
+    <button type="submit">Guardar cambios</button>
+</form>
+
+<h2>Imágenes actuales:</h2>
+<ul>
+    {% for foto in perro_fotos %}
+        <li><img src="{{ foto.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}"></li>
+    {% endfor %}
+</ul>

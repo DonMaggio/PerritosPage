@@ -6,6 +6,15 @@
     <title>Detalle de {{ perro.nombre }}</title>
 </head>
 <body>
+    {% if messages %}
+    <div class="alert alert-success" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div> 
+    {% endif %}
+
+
     <h1>{{ perro.nombre }}</h1>
     <p>Género: {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
     <p>Edad: {{ perro.edad }} años</p>
