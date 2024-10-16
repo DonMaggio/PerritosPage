@@ -22,11 +22,25 @@
                 <p>Género: {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
                 <p>Edad: {{ perro.edad }} años</p>
                 <p>Historia: {{ perro.historia }}</p>
-                {% for foto in perro.fotos.all %}
-                    <img src="{{ foto.imagen.url }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
+                {% for foto in perro.fotos %}
+                    <img src="{{ foto.imagen }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
                 {% endfor %}
             </li>
         {% endfor %}
     </ul>
+
+    <!-- Mostrar la página actual y el número total de páginas -->
+    <p>Página {{ current_page }} de {{ total_pages }}</p>
+
+    <!-- Botón "Anterior" -->
+    {% if has_previous %}
+        <a href="?page={{ current_page|add:-1 }}">Anterior</a>
+    {% endif %}
+
+    <!-- Botón "Siguiente" -->
+    {% if has_next %}
+        <a href="?page={{ current_page|add:1 }}">Siguiente</a>
+    {% endif %}
+
 </body>
 </html>

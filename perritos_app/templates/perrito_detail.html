@@ -15,13 +15,13 @@
     {% endif %}
 
 
-    <h1>{{ perro.nombre }}</h1>
-    <p>Género: {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
-    <p>Edad: {{ perro.edad }} años</p>
-    <p>Historia: {{ perro.historia }}</p>
-    <p>Talla: {{ perro.talla }}</p>
-    {% for foto in perro.fotos.all %}
-        <img src="{{ foto.imagen.url }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
+    <h1>{{ perros.nombre }}</h1>
+    <p>Género: {% if perros.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
+    <p>Edad: {{ perros.edad }} años</p>
+    <p>Historia: {{ perros.historia }}</p>
+    <p>Talla: {{ perros.talla }}</p>
+    {% for foto in perros.fotos %}
+        <img src="{{ foto.imagen }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
     {% endfor %}
 </body>
 </html>

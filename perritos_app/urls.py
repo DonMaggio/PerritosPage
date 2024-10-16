@@ -6,7 +6,7 @@ from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 from . import views
-from .views import PerritosViewSet, PerritosFormView, PerritosUpdateView
+from .views import PerritosViewSet, PerritosFormView, PerritosUpdateView, IndexView
 
 router = DefaultRouter()
 router.register(r'perritos', PerritosViewSet, basename='adopta')
@@ -18,7 +18,7 @@ urlpatterns = [
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
 
-    path('', views.index, name='index'),
+    path('nosotros', IndexView.as_view(), name='index'),
     path('perro/create', PerritosFormView.as_view(), name='perro-create'),
     path('perro/update/<int:pk>', PerritosUpdateView.as_view(), name='perro-update'),
 ]
