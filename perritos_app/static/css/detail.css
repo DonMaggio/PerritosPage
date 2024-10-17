@@ -1,0 +1,62 @@
+/*---- LOGIN ---- */
+
+.dona{
+    container-name: adopta;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 65px;
+    padding-top: 155px;
+}
+
+
+#login {
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+h1{
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.adopta__button{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 40px
+}
+
+.adopta__button a{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 30px; /* Espaciado interno */
+    background-color: #101632cc; /* Color de fondo */
+    color: #f8f8f8;
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-decoration: none; /* Quita el subrayado */
+    border-radius: 16px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+}
+
+.adopta__button a:hover{
+    background-color: #fd819577 ;
+    color: inherit;
+}
+
+/* ---- END LOGIN ---- */
+

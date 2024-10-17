@@ -1,4 +1,68 @@
-<!DOCTYPE html>
+{% extends 'nav.html' %}
+{% csrf_token %}
+
+{% block extra_meta %}<meta name="csrf-token" content="{% csrf_token %}">{% endblock %}
+
+{% block title %}Bigotes Felices- Adopta{% endblock %}
+
+{% block extra_css %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/adopta.css' %}">  <!-- CSS específico para main.html -->
+{% endblock %}
+
+{% block content %}
+<main class="adopta">
+    <div class="adopta__container">
+        <div class="adopta__header">
+            <img src="../static/images/perro1.jpg" alt="Foto de Perra" class="adopta__header-img">
+            <div class="adopta__header-capa"></div>
+            <h1>Adoptá</h1> 
+        </div>
+        <div class="adopta__rescatados">
+            {% for perro in perros %}
+            <button class="rescatado-container" data-item-id="{{ perro.id }}" onclick= "redirectToItem('{{ perro.id }}')">
+                {% if perro.fotos %}
+                    <img src="{{ perro.fotos.imagen }}" class="rescatado-img">
+                {% else %}
+                    <img src="../static/images/perro2.jpg" class="rescatado-img">  {# Imagen predeterminada si no hay fotos #}
+                {% endif %}
+                <h2 class="rescatado-nombre">{{ perro.nombre|upper }}</h2>
+            </button>
+            {% endfor %}
+        </div>
+        <div class="adopta__pag">
+            <p> < Anterior 1 2 3 Siguiente > </p> 
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'js/adopta.js' %}"></script>  <!-- Script específico para main.html -->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -29,18 +93,18 @@
         {% endfor %}
     </ul>
 
-    <!-- Mostrar la página actual y el número total de páginas -->
+    Mostrar la página actual y el número total de páginas 
     <p>Página {{ current_page }} de {{ total_pages }}</p>
 
-    <!-- Botón "Anterior" -->
+     Botón "Anterior" 
     {% if has_previous %}
         <a href="?page={{ current_page|add:-1 }}">Anterior</a>
     {% endif %}
 
-    <!-- Botón "Siguiente" -->
+    Botón "Siguiente" 
     {% if has_next %}
         <a href="?page={{ current_page|add:1 }}">Siguiente</a>
     {% endif %}
 
 </body>
-</html>
+</html>-->

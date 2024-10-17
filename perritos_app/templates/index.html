@@ -1,4 +1,36 @@
-<!DOCTYPE html>
+{% extends 'nav.html' %}
+{% csrf_token %}
+
+{% block extra_meta %}<meta name="csrf-token" content="{% csrf_token %}">{% endblock %}
+
+{% block title %}Bigotes Felices- Adopta{% endblock %}
+
+{% block extra_css %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/adopta.css' %}">  <!-- CSS específico para main.html -->
+{% endblock %}
+
+{% block content %}
+<main class="adopta">
+    <div class="adopta__container">
+        <div class="adopta__header">
+            <img src="../images/perro1.jpg" alt="Foto de Perra" class="adopta__header-img">
+            <div class="adopta__header-capa"></div>
+            <h1>Adoptá</h1>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'js/adopta.js' %}"></script>  <!-- Script específico para main.html -->
+{% endblock %}
+
+
+
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

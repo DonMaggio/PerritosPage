@@ -1,0 +1,98 @@
+/* ---- ADOPTA ---- */
+
+.adopta{
+    container-name: adopta;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.adopta__header{
+    margin-top: 10rem;
+    height: 10%;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.adopta__header-img{
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.adopta__header-capa{
+    position: absolute; /* Posiciona la capa sobre la imagen */
+    top: 0; /* Alinea al borde superior */
+    left: 0; /* Alinea al borde izquierdo */
+    right: 0; /* Alinea al borde derecho */
+    bottom: 0; /* Alinea al borde inferior */
+    background:linear-gradient(to bottom, #ffffff00 60%, #ffffff99 100%)
+
+}
+
+.adopta__header h1{
+    margin: 0;
+    position: absolute;
+    bottom: 10px; /* Distancia desde el borde inferior */
+    left: 50px; /* Distancia desde el borde izquierdo */
+    font-size: 7rem; /* Tamaño de la fuente */
+    font-family: 'syne', sans-serif;
+    font-weight: 500;
+    color: #101632dd;
+}
+
+.adopta__rescatados{
+    margin: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+    grid-template-rows: repeat(auto-fill, auto);
+    gap: 10px; /* Espaciado entre elementos */
+    padding: 50px;
+    gap: 10px;
+    justify-content: center;
+    font-family: 'syne', sans-serif;
+    color: rgb(253, 129, 149)
+}
+
+.rescatado-container{
+    margin: 15px 0;   
+    display: flex; /* Para centrar el contenido */
+    flex-direction: column;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.rescatado-img{
+    max-height: 50vh;
+    width: 20vw;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0px 0px 10px #0009;
+}
+
+.rescatado-nombre{
+    padding-top: 15px;
+    font-weight: 700;
+    font-family: 'syne', sans-serif;
+    color: rgb(253, 129, 149)
+}
+
+.adopta__pag{
+    display: flex;
+}
+
+.adopta__pag p{
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: auto;
+    padding: 20px;
+    word-spacing: 9px;
+}
+
+
+/* ---- HEADER ADOPTA ---- */
