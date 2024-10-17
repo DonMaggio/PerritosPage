@@ -15,7 +15,7 @@ from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer, BrowsableAPIRenderer
 from drf_spectacular.utils import extend_schema
 
-from .serializers import PerroSerizalizer
+from .serializers import PerroListSerizalizer, PerroDetailSerizalizer
 from .models import Perro, PerroFotos
 from .forms import PerrosForm, PerroFotosForm
 
@@ -35,9 +35,15 @@ class IndexView(TemplateView):
 class PerritosViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
     queryset = Perro.objects.all().filter(status=True).order_by('id')
-    serializer_class = PerroSerizalizer
     renderer_classes = [TemplateHTMLRenderer, JSONRenderer]
     template_name='perritos_list.html'
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return PerroListSerizalizer
+        if self.action == 'retrieve':
+            return PerroDetailSerizalizer
+        return super().get_serializer_class()
 
     def render_response(self, data, request, template_name=None, context=None):
         """Función para manejar la respuesta HTML o JSON."""
