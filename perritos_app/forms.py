@@ -38,3 +38,9 @@ class MultipleFileField(forms.FileField):
 
 class PerroFotosForm(forms.Form):
     file_field = MultipleFileField()
+
+    def clean_file_field(self):
+        files = self.files.getlist('file_field')
+        if not files or len(files) == 0:
+            raise forms.ValidationError("Debes subir al menos una imagen.")
+        return files
