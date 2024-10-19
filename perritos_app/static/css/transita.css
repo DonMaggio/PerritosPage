@@ -1,0 +1,106 @@
+/* ---- TRANSITA ---- */
+
+p{
+    padding-top: 20px;
+}
+
+.transita{
+    container-name: adopta;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 100px;
+}
+
+.transita__header{
+    margin-top: 10rem;
+    height: 10%;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.transita__header-img{
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.transita__header-capa{
+    position: absolute; /* Posiciona la capa sobre la imagen */
+    top: 0; /* Alinea al borde superior */
+    left: 0; /* Alinea al borde izquierdo */
+    right: 0; /* Alinea al borde derecho */
+    bottom: 0; /* Alinea al borde inferior */
+    background:linear-gradient(to bottom, #ffffff00 60%, #ffffff99 100%)
+
+}
+
+.transita__header h1{
+    margin: 0;
+    position: absolute;
+    bottom: 10px; /* Distancia desde el borde inferior */
+    left: 50px; /* Distancia desde el borde izquierdo */
+    font-size: 7rem; /* Tamaño de la fuente */
+    font-family: 'syne', sans-serif;
+    font-weight: 500;
+    color: #101632dd;
+}
+
+
+.transita__presentacion{
+    padding: 50px;
+    padding-left: 80px;
+    margin: auto;
+    width: 80%;
+    display: flex;
+    gap: 70px;
+    align-items: center;
+
+}
+
+.transita__presentacion img{
+    height: 17rem;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 1px 1px 15px #0009;
+}
+
+.transita__pregunta, .transita__aclaracion{
+    padding-top: 30px ;
+    margin: auto;
+    width: 80%;
+}
+
+.transita__button{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 40px
+}
+
+.transita__button a{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 30px; /* Espaciado interno */
+    background-color: #101632cc; /* Color de fondo */
+    color: #f8f8f8;
+    font-weight: 600;
+    font-size: 1.7rem;
+    text-decoration: none; /* Quita el subrayado */
+    border-radius: 16px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+}
+
+.transita__button a:hover{
+    background-color: #fd819577 ;
+    color: inherit;
+}
+.transita__aclaracion, .transita__aclaracion p{
+    padding: 0;
+}
+
+
+/* ---- END TRANISTA ---- */

@@ -1,4 +1,41 @@
-<!DOCTYPE html>
+{% extends 'nav.html' %}
+{% csrf_token %}
+
+{% block extra_meta %}<meta name="csrf-token" content="{% csrf_token %}">{% endblock %}
+
+{% block title %} {{ perro.nombre }} {% endblock %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">  <!-- CSS específico para main.html -->
+{% endblock %}
+
+{% block content %}
+<main class="dona">
+    <section id="login">
+        <h1>Nuevo Rescatado</h1>
+        <div class="detail">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Formulario principal para el proyecto -->
+                {{ imageform.as_p }}  <!-- Formulario para las imágenes (uso de ImageForm) -->
+                <button class="create__button" type="submit" >Agregar</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'js/create.js' %}"></script>  <!-- Script específico para main.html -->
+{% endblock %}
+
+
+
+
+
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,9 +54,9 @@
 
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}  <!-- Formulario principal para el proyecto -->
+    {{ form.as_p }}  Formulario principal para el proyecto 
     
-    {{ imageform.as_p }}  <!-- Formulario para las imágenes (uso de ImageForm) -->
+    {{ imageform.as_p }}   Formulario para las imágenes (uso de ImageForm) 
     <button type="submit">Cargar perro</button>
 </form>
 

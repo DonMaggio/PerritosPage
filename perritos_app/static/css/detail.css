@@ -1,31 +1,9 @@
-/*---- LOGIN ---- */
-
-.dona{
-    container-name: adopta;
-    container-type: inline-size;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin-bottom: 65px;
-    padding-top: 155px;
-}
-
-
-#login {
-    margin: auto;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    background-color: #fcfcfc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 100%;
-    max-width: 400px;
-}
+/*---- DETAILS ---- */
 
 h1{
     text-align: center;
+    padding-bottom: 20px;
+    font-size: 2rem;
 }
 
 h2 {
@@ -33,11 +11,82 @@ h2 {
     text-align: center;
 }
 
+.dona{
+    container-name: adopta;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 20px;
+    padding-top: 115px;
+    font-size: 1rem;
+}
+
+
+#login {
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfc;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.detail{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 25px;
+    padding: 0;
+}
+
+.info__display{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.info__display p{
+    margin-bottom: 10px
+    
+}
+
+.photo__display {
+    text-align: center;
+    
+}
+
+#main-photo{
+    border-radius: 16px;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre miniaturas */
+}
+
+.thumbnail {
+    cursor: pointer;
+    transition: transform 0.2s; /* Efecto al pasar el mouse */
+    border-radius: 8px;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1); /* Aumentar el tamaño al pasar el mouse */
+}
+
 .adopta__button{
     margin: auto;
     display: flex;
     flex-direction: column;
-    padding: 40px
+    padding-top: 40px
 }
 
 .adopta__button a{
@@ -57,6 +106,7 @@ h2 {
     background-color: #fd819577 ;
     color: inherit;
 }
+
 
 /* ---- END LOGIN ---- */
 

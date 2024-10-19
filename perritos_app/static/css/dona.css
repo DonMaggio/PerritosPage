@@ -1,0 +1,153 @@
+
+/* ---- DONA ---- */
+
+p{
+    padding-top: 20px;
+}
+
+.dona{
+    container-name: adopta;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 100px;
+}
+
+.dona__header{
+    margin-top: 10rem;
+    height: 10%;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.dona__header-img{
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.dona__header-capa{
+    position: absolute; /* Posiciona la capa sobre la imagen */
+    top: 0; /* Alinea al borde superior */
+    left: 0; /* Alinea al borde izquierdo */
+    right: 0; /* Alinea al borde derecho */
+    bottom: 0; /* Alinea al borde inferior */
+    background:linear-gradient(to bottom, #ffffff00 60%, #ffffff99 100%)
+
+}
+
+.dona__header h1{
+    margin: 0;
+    position: absolute;
+    bottom: 10px; /* Distancia desde el borde inferior */
+    left: 50px; /* Distancia desde el borde izquierdo */
+    font-size: 7rem; /* Tamaño de la fuente */
+    font-family: 'syne', sans-serif;
+    font-weight: 500;
+    color: #101632dd;
+}
+
+
+.dona__presentacion{
+    padding-top: 60px;
+    padding-right: 100px;
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 30px;
+    align-items: center;
+}
+
+.dona__presentacion img{
+    height: 17rem;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 1px 1px 15px #0009;
+}
+
+.dona__titulo{
+    padding: 30px 0;
+    margin: auto;
+    width: 80%;
+}
+
+.dona__titulo p{
+    padding: 0;
+}
+
+.dona__opciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.dona__opcion{
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 50px 30px 70px 30px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px #0005;
+    text-align: center;
+}
+
+.dona__opcion h4{
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-bottom: 20px;
+    margin: auto;
+}
+
+.dona__opcion-da{
+    padding-bottom: 30px;
+}
+
+
+.dona__button{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    padding: 0px
+}
+
+.dona__button a{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 15px; /* Espaciado interno */
+    background-color: #101632cc; /* Color de fondo */
+    color: #f8f8f8;
+    font-weight: 400;
+    font-size: 1rem;
+    text-decoration: none; /* Quita el subrayado */
+    border-radius: 16px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+}
+
+.dona__button a:hover{
+    background-color: #fd819577 ;
+    color: inherit;
+}
+.dona__aclaracion, .dona__aclaracion p{
+    padding: 10px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.dona__insumos-lista{
+    padding: 20px 50px;
+}
+
+.dona__insumos-lista li{
+    padding: 4px;
+}
+
+
+
+/* ---- END DONA ---- */

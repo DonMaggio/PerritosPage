@@ -1,0 +1,57 @@
+{% extends 'nav.html' %}
+{% csrf_token %}
+
+{% block extra_meta %}<meta name="csrf-token" content="{% csrf_token %}">{% endblock %}
+
+{% block title %} B.F.- Transita {% endblock %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/transita.css' %}">  <!-- CSS específico para main.html -->
+{% endblock %}
+
+{% block content %}
+<main class="transita">
+    <div class="transita__container">
+        <div class="transita__header">
+            <img src="../static/images/transita2.jpg" alt="Foto de Perra" class="transita__header-img">
+            <div class="transita__header-capa"></div>
+            <h1>Hogar de Tránsito</h1>
+        </div>
+        <div class="transita__presentacion">
+            <img src="../static/images/perro3.jpg" alt="Perro cachorro">
+            <div>
+                <p>Los Hogares de tránsito nos dan la posibilidad de poder rescatar a los animales que nos necesitan, sin ellos no podríamos hacerlo ya que no contamos con un lugar físico como un refugio donde puedan ser cuidados hasta su adopción.
+                </p>
+                <p>Ser familia de tránsito requiere compromiso y responsabilidad, y tener realmente la voluntad de ayudar. Transitar significa brindar amor tiempo, dedicación, paciencia y flexibilidad. 
+                </p>
+                <p>Quizás no puedas adoptar, pero si podés transitar por unos días estarías colaborando muchísimo.
+                </p>
+            </div>
+        </div>
+        <div class="transita__pregunta">
+            <h3>¿QUE SIGNIFICA SER HOGAR DE TRÁNSITO?</h3>
+            <p> 
+                Ofrecer tu casa o departamento y tu dedicación para poder recuperar al animal rescatado, no importa si tenes patio, jardín, balcón o no. El hogar de tránsito es donde los animales se recuperan del maltrato y la vida en la calle para volver a creer en el amor mientras se busca un hogar y familia definitiva. 
+            </p>
+            <p>
+                Se trata de acompañar en el proceso de recuperación (tanto física como mental). Recuperar un animal lastimado e indefenso hace que la familia de tránsito sea un puente fundamental entre una vida horrible y una vida hermosa.
+            </p>
+            <p>
+                La parte más reconfortante del proceso de tránsito es verlo ir con su nueva familia, donde va a ser amado e incluido como un integrante de la misma.
+            </p>
+            <p>
+                <b>¡Te invitamos a involucrarte y ser parte de lo maravilloso que es dar segundas oportunidades! </b>
+            </p>
+        </div>
+        <div class="transita__button">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeO1i14xYBfZ9IBcFy76oVHhCxlKzNhVbBZs4EHC9mm7krrcw/viewform" target="_blank" rel="noopener noreferrer">Postularme</a>
+        </div>
+        <div class="transita__aclaracion">
+            <p><b>¡IMPORTANTE!</b> Mientras se transita a un animal todos los gastos asociados corren por nuestra cuenta (alimento, traslados, gastos veterinarios, medicamentos, etc). También nos encargamos de la búsqueda de adoptante y el proceso completo de adopción.
+            </p>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

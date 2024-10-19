@@ -70,6 +70,7 @@
 .rescatado-img{
     max-height: 50vh;
     width: 20vw;
+    aspect-ratio: 2 / 3;
     border-radius: 15px;
     object-fit: cover;
     box-shadow: 0px 0px 10px #0009;

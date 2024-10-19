@@ -7,56 +7,42 @@
 
 {% block extra_css %}
 {% load static %}
-    <link rel="stylesheet" href="{% static 'css/detail.css' %}">  <!-- CSS específico para main.html -->
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">  <!-- CSS específico para main.html -->
 {% endblock %}
 
 {% block content %}
 <main class="dona">
     <section id="login">
-        <h1>{{ perros.nombre }}</h1>
-        <p>Género: {% if perros.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
-        <p>Edad: {{ perros.edad }} años</p>
-        <p>Historia: {{ perros.historia }}</p>
-        <p>Talla: {{ perros.talla }}</p>
-        {% for foto in perros.fotos %}
-            <img src="{{ foto.imagen }}" alt="Foto de perro" style="width:200px;height:auto;">
-        {% endfor %}
-        <div class="adopta__button">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeO1i14xYBfZ9IBcFy76oVHhCxlKzNhVbBZs4EHC9mm7krrcw/viewform" target="_blank" rel="noopener noreferrer">Quiero Adoptar</a>
+        <h1>{{ perros.nombre|upper }}</h1>
+        <div class="detail">
+            <div class="info__display">
+                <p><b>Historia: </b>{{ perros.historia }}</p>
+                <p> <b>Género: </b> {% if perros.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
+                <p><b>Edad: </b>{{ perros.edad }} años</p>
+                <p><b>Tamaño: </b>{{ perros.talla }}</p>
+                <div class="thumbnail-gallery">
+                    {% for foto in perros.fotos %}
+                        <img src="{{ foto.imagen }}" alt="Foto de perro" class="thumbnail" onclick="changePhoto('{{ foto.imagen }}')" style="cursor: pointer; width: 100px; height: auto;">
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="photo__display">
+                <img id="main-photo" src="{{ perros.fotos.0.imagen }}" alt="Foto de perro" style="width:400px;height:auto;">
+            </div>
         </div>
 
-    </section>   
+        
+
+        <div class="adopta__button">
+            <a href="https://docs.google.com/forms/d/1mi2Gr4Bjh9JPoa_mZPJEKXOJvXYkSc-Em3IRYvwiYF0/viewform?edit_requested=true#responses" target="_blank" rel="noopener noreferrer">Quiero Adoptar</a>
+        </div>
+    </section>
 </main>
 
+<script>
+    function changePhoto(photoUrl) {
+        document.getElementById('main-photo').src = photoUrl;
+    }
+</script>
+
 {% endblock %}
-
-
-
-
-<!--<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de {{ perro.nombre }}</title>
-</head>
-<body>
-    {% if messages %}
-    <div class="alert alert-success" role="alert">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div> 
-    {% endif %}
-
-
-    <h1>{{ perros.nombre }}</h1>
-    <p>Género: {% if perros.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
-    <p>Edad: {{ perros.edad }} años</p>
-    <p>Historia: {{ perros.historia }}</p>
-    <p>Talla: {{ perros.talla }}</p>
-    {% for foto in perros.fotos %}
-        <img src="{{ foto.imagen }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
-    {% endfor %}
-</body>
-</html>-->

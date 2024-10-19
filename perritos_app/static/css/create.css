@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+
+h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit; /* Asegura que se use la misma fuente que el resto */
+    font-size: 1rem; /* Tamaño de fuente consistente */
+}
+
+/*---- DETAILS ---- */
+
+h1{
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 2rem;
+    font-family: 'poppins', sans-serif;
+}
+
+.dona{
+    container-name: adopta;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 35px;
+    padding-top: 115px;
+    font-size: 1rem;
+}
+
+
+#login {
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfc;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.detail{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 25px;
+    padding: 0;
+}
+
+
+.create__button{
+    margin: 0;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 30px; /* Espaciado interno */
+    background-color: #101632cc; /* Color de fondo */
+    color: #f8f8f8;
+    font-weight: 600;
+    font-size: 1.3rem;
+    border-radius: 16px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+}
+
+.create__button:hover{
+    background-color: #fd819577 ;
+    color: inherit;
+}
+
+label{
+    padding-top: 20px;
+}
+
+input[type="checkbox"]{
+    align-self: self-start;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e986be;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+
+}
+
+input[type="checkbox"]:checked{
+    background-color: pink;
+}
+
+
+/* ---- END CREATE ---- */

@@ -1,0 +1,84 @@
+{% extends 'nav.html' %}
+{% csrf_token %}
+
+{% block extra_meta %}<meta name="csrf-token" content="{% csrf_token %}">{% endblock %}
+
+{% block title %} B.F. - Doná {% endblock %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/dona.css' %}">  <!-- CSS específico para main.html -->
+{% endblock %}
+
+{% block content %}
+<main class="dona">
+    <div class="dona__container">
+        <div class="dona__header">
+            <img src="../static/images/perro7.jpg" alt="Foto de Perra" class="dona__header-img">
+            <div class="dona__header-capa"></div>
+            <h1>Ayudanos</h1>
+        </div>
+        <div class="dona__presentacion">
+            <img src="../static/images/gato3.jpg" alt="Perro cachorro">
+            <div>
+                <p>Las donaciones que recibimos por parte de ustedes son nuestra única fuente de ingresos para rehabilitar y cuidar a los rescatados.</p>
+                <p>Ustedes son los que nos permiten cambiarle la vida a los animales. Usamos estos ingresos tanto para comprar alimento como para costear los gastos de veterinarios, medicamentos, pensionados, entre otros.</p>
+                <p><b>¡Ayudanos a continuar nuestra misión de rescatar y salvar vidas! </b></p>
+            </div>
+        </div>
+        <div class="dona__titulo">
+            <h3>APORTES ECONÓMICOS:</h3>
+            <div class="dona__opciones">
+                <div class="dona__opcion">
+                    <h4>TRANSFERENCIA BANCARIA</h4>
+                    <p><b>ALIAS:</b> BIGOTES.FELICES</p>
+                    <p><b>CVU:</b> 0000003100065741141537</p>
+                    <p><b>TITULAR:</b> GIULIANA MOREZZIN</p>
+                </div>
+                <div class="dona__opcion">
+                    <h4>MERCADO PAGO</h4>
+                    <div class="dona__button">
+                        <a href="https://www.mercadopago.com.ar/" target="_blank" rel="noopener noreferrer">Elegir monto</a>
+                        <a href="https://www.mercadopago.com.ar/" target="_blank" rel="noopener noreferrer">Doná $2.000</a>
+                        <a href="https://www.mercadopago.com.ar/" target="_blank" rel="noopener noreferrer">Doná $5.000</a>
+                        <a href="https://www.mercadopago.com.ar/" target="_blank" rel="noopener noreferrer">Doná $10.000</a>
+                    </div>
+                </div>
+                <div class="dona__opcion">
+                    <h4>DÉBITO AUTOMÁTICO</h4>
+                    <p class="dona__opcion-da">Adherite al débito automatico con Mercado Pago</p>
+                    <div class="dona__button">
+                        <a href="https://www.mercadopago.com.ar/" target="_blank" rel="noopener noreferrer">DÉBITO AUTOMÁTICO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dona__titulo">
+            <h3>INSUMOS:</h3>
+            <p>Los insumos nos permiten ahorrar el dinero que donan para destinarlo exclusivamente a gastos de atención veterinaria. Pueden ser insumos nuevos o usados. <br>
+            Si crees que tenés algo que nos puede servir para alguno de nuestros rescatados no dudes en consultarnos. Lo que habitualmente necesitamos es:
+            </p>
+            <ul class="dona__insumos-lista">
+                <li>Pastillas Nest Gard Spectra/Simparica.</li>
+                <li>Shampoo para gato o perro (Fórmula MC DONALD)</li>
+                <li>Insumos de enfermería (Vendas, Gasas, Pervinox, Solución fisiológica)</li>
+                <li>Spray para pulgas Front Line</li>
+                <li>Crema 6A</li>
+                <li>Collar Isabelino</li>
+                <li>Collares, Pretales y Correas</li>
+                <li>Chapita Identificadoras</li>
+                <li>Comederos y Bebederos</li>
+                <li>Mantas</li>
+                <li>Abrigos</li>
+                <li>Colchonetas y Camitas</li>
+                <li>Juguetes</li>
+            </ul>
+        </div>
+        
+        <div class="dona__aclaracion">
+            <p>¡MUCHAS GRACIAS!</p>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

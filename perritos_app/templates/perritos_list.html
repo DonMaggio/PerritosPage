@@ -20,9 +20,10 @@
         </div>
         <div class="adopta__rescatados">
             {% for perro in perros %}
+        
             <button class="rescatado-container" data-item-id="{{ perro.id }}" onclick= "redirectToItem('{{ perro.id }}')">
-                {% if perro.fotos %}
-                    <img src="{{ perro.fotos.imagen }}" class="rescatado-img">
+                {% if perro.primera_foto %}
+                    <img src="{{perro.primera_foto.imagen}}" class="rescatado-img">
                 {% else %}
                     <img src="../static/images/perro2.jpg" class="rescatado-img">  {# Imagen predeterminada si no hay fotos #}
                 {% endif %}

@@ -186,11 +186,19 @@ a{
     
 }
 
-.footer p{
+.footer p, .footerlogout{
     padding-top: 10px;
     margin: auto;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.footerlogout, .footerform{
+    display: inline-block;
+    padding: 0;
+    margin: auto;
 }
 
 .footer-text1{
@@ -201,7 +209,7 @@ a{
 
 .iconfooter{
     width: .9em;
-    height: .8em;
+    height: .75em;
 }
 
 
