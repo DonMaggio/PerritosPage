@@ -28,7 +28,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/nosotros', permanent=True)),
     path('', include('perritos_app.urls')),
     path('api-token-auth/', obtain_auth_token),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('account/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

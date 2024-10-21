@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de {{ perro.nombre }}</title>
+</head>
+<body>
+    <h1>Detalle del Perro: {{ perro.nombre }}</h1>
+    <p>Bienvenido, {{ username }}!</p>
+
+    <p><strong>Género:</strong> {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
+    <p><strong>Edad:</strong> {{ perro.edad }} años</p>
+    <p><strong>Historia:</strong> {{ perro.historia }}</p>
+    <p><strong>Tamaño:</strong> {{ perro.talla|upper }}</p>
+
+    <!-- Mostrar todas las fotos del perro -->
+    <div>
+        <h3>Fotos de {{ perro.nombre }}:</h3>
+        {% if perro.fotos.all %}
+            {% for foto in perro.fotos.all %}
+                <img src="{{ foto.imagen.url }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
+            {% endfor %}
+        {% else %}
+            <p>No hay fotos disponibles.</p>
+        {% endif %}
+    </div>
+
+    <!-- Enlace para volver a la lista de perros -->
+    <a href="{% url 'adopta-list' %}">Volver a la lista de perritos</a>
+</body>
+</html>

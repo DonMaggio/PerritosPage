@@ -6,43 +6,47 @@
     <title>Lista de Perritos</title>
 </head>
 <body>
-    {% if messages %}
-    <div class="alert alert-success" role="alert">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %}
-
     <h1>Perros Disponibles para Adopción</h1>
-    <ul>
-        {% for perro in perros %}
-            <li>
-                <h2>{{ perro.nombre }}</h2>
-                <p>Género: {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
-                <p>Edad: {{ perro.edad }} años</p>
-                <p>Historia: {{ perro.historia }}</p>
-                {% if perro.primera_foto %}
-                    <img src="{{ perro.primera_foto.imagen }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
-                {% else %}
-                    <p>Sin foto disponible</p>
+    <p>Bienvenido, {{ username }}!</p>
+
+    {% if perros %}
+        <ul>
+            {% for perro in perros %}
+                <li>
+                    <h2>{{ perro.nombre }}</h2>
+                    <p>Género: {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
+                    <p>Edad: {{ perro.edad }} años</p>
+                    <p>Historia: {{ perro.historia }}</p>
+                    <p>Tamaño: {{ perro.talla|upper }}</p>
+                    
+                    {% if perro.fotos.count > 0 %}
+                        <img src="{{ perro.fotos.first.imagen.url }}" alt="Foto de {{ perro.nombre }}" style="width:200px;height:auto;">
+                    {% else %}
+                        <p>No hay fotos disponibles para {{ perro.nombre }}</p>
+                    {% endif %}
+                    
+                    <!-- Enlace al detalle del perro -->
+                    <a href="{% url 'adopta-detail' perro.id %}">Ver Detalle</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Paginación -->
+        {% if is_paginated %}
+            <div>
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
                 {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+                
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
 
-    <!-- Mostrar la página actual y el número total de páginas -->
-    <p>Página {{ current_page }} de {{ total_pages }}</p>
-
-    <!-- Botón "Anterior" -->
-    {% if has_previous %}
-        <a href="?page={{ current_page|add:-1 }}">Anterior</a>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% else %}
+        <p>No hay perros disponibles para adopción en este momento.</p>
     {% endif %}
-
-    <!-- Botón "Siguiente" -->
-    {% if has_next %}
-        <a href="?page={{ current_page|add:1 }}">Siguiente</a>
-    {% endif %}
-
 </body>
 </html>
