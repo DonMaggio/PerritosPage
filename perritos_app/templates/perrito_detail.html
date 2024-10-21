@@ -12,30 +12,28 @@
 
 {% block content %}
 <main class="dona">
+
     <section id="login">
-        <h1>{{ perros.nombre|upper }}</h1>
+        <h1>{{ perro.nombre|upper }}</h1>
         <div class="detail">
             <div class="info__display">
-                <p><b>Historia: </b>{{ perros.historia }}</p>
-                <p> <b>Género: </b> {% if perros.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
-                <p><b>Edad: </b>{{ perros.edad }} años</p>
-                <p><b>Tamaño: </b>{{ perros.talla }}</p>
-                <div class="thumbnail-gallery">
-                    {% for foto in perros.fotos %}
-                        <img src="{{ foto.imagen }}" alt="Foto de perro" class="thumbnail" onclick="changePhoto('{{ foto.imagen }}')" style="cursor: pointer; width: 100px; height: auto;">
-                    {% endfor %}
-                </div>
+                <p><b>Historia: </b>{{ perro.historia }}</p>
+                <p> <b>Género: </b> {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
+                <p><b>Edad: </b>{{ perro.edad }} años</p>
+                <p><b>Tamaño: </b>{{ perro.talla }}</p>
             </div>
             <div class="photo__display">
-                <img id="main-photo" src="{{ perros.fotos.0.imagen }}" alt="Foto de perro" style="width:400px;height:auto;">
+                <img id="main-photo" src="{{ perro.fotos.first.imagen.url }}" alt="Foto de perro" style="width:400px;height:auto;">
             </div>
         </div>
-
-        
-
+        <div class="thumbnail-gallery">
+            {% for foto in perro.fotos.all %}
+                <img src="{{ foto.imagen.url }}" alt="Foto de perro" class="thumbnail" onclick="changePhoto('{{ foto.imagen.url }}')" style="cursor: pointer; width: 100px; height: auto;">
+            {% endfor %}
+        </div>
         <div class="adopta__button">
-            {% if user %}
-            <button data-item-id="{{ perros.id }}" onclick= "redirectToItem('{{ perros.id }}')" rel="noopener noreferrer">Modificar</button>
+            {% if user.username %}
+            <button data-item-id="{{ perro.id }}" onclick= "redirectToItem('{{ perro.id }}')" rel="noopener noreferrer">Modificar</button>
             {% else %}
             <a href="https://docs.google.com/forms/d/1mi2Gr4Bjh9JPoa_mZPJEKXOJvXYkSc-Em3IRYvwiYF0/viewform?edit_requested=true#responses" target="_blank" rel="noopener noreferrer">Quiero Adoptar</a>
             {% endif %}

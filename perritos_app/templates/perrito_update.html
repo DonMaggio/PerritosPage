@@ -13,7 +13,7 @@
 {% block content %}
 <main class="dona">
     <section id="login">
-        <h1>Nuevo Rescatado</h1>
+        <h1>Modificar datos de {{perro.nombre}}</h1>
         <div class="detail">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -24,12 +24,12 @@
                 </div>
                 <button type="submit" class="create__button">Guardar cambios</button>
             </form>
-            <!--<h2>Imágenes actuales:</h2>
-            <ul>
+            <h2>Imágenes actuales:</h2>
+            <ul class="img__actuales">
                 {% for foto in perro_fotos %}
-                    <li><img src="{{ foto.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}"></li>
+                    <li><img src="{{ foto.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}" class="img__actual"></li>
                 {% endfor %}
-            </ul>-->
+            </ul>
         </div>
     </section>
 </main>

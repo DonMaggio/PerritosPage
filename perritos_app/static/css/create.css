@@ -33,7 +33,7 @@ form{
 
 h1{
     text-align: center;
-    padding-bottom: 20px;
+    padding: 20px;
     font-size: 2rem;
     font-family: 'poppins', sans-serif;
 }
@@ -62,8 +62,6 @@ h1{
     width: 100%;
     max-width: 600px;
 }
-
-
 
 .create__button{
     margin: 0;
@@ -101,6 +99,22 @@ label{
 
 .detail input[type="checkbox"]:checked{
     background-color: pink;
+}
+.img__actuales{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-template-rows: repeat(autofill,auto);
+}
+
+.img__actuales li{
+    list-style-type: none
+}
+
+.img__actual{
+    max-height: 100px;
+    aspect-ratio: 2 / 2;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 

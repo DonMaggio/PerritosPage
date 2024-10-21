@@ -63,6 +63,9 @@ h2 {
 
 #main-photo{
     border-radius: 16px;
+    max-height: 380px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
 }
 
 .thumbnail-gallery {

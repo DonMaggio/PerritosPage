@@ -19,15 +19,15 @@
             <h1>Adoptá</h1> 
         </div>
         <div class="add">
-        {% if user %}
+        {% if user.username %}
             <a class="add-link" href="{% url 'perro-create' %}"> + Agregar nuevo rescatado</a>
         {% endif %}
         </div>
         <div class="adopta__rescatados">
             {% for perro in perros %}        
             <button class="rescatado-container" data-item-id="{{ perro.id }}" onclick= "redirectToItem('{{ perro.id }}')">
-                {% if perro.primera_foto %}
-                    <img src="{{perro.primera_foto.imagen}}" class="rescatado-img">
+                {% if perro.fotos.count > 0 %}
+                    <img src="{{ perro.fotos.first.imagen.url }}" class="rescatado-img">
                 {% else %}
                     <img src="../static/images/perro2.jpg" class="rescatado-img">  {# Imagen predeterminada si no hay fotos #}
                 {% endif %}
