@@ -15,7 +15,7 @@ TALLA_CHOISES = (
 class Perro(models.Model):
     nombre=models.CharField(max_length=100, help_text='Nombre completo del perrito')
     genero=models.PositiveSmallIntegerField(choices=GENERO_CHOICES, default='1', help_text='1-Macho, 2-Hembra')
-    edad=models.DecimalField(max_digits= 4, decimal_places=2, help_text='Ingresar la edad en años y meses')
+    edad=models.DecimalField(max_digits= 2, decimal_places=0, help_text='Ingresar la edad en años')
     historia=models.TextField(max_length=1000, help_text='Ingrese una breve descripcion del perrito y su historia')
     talla=models.CharField(max_length=1, choices=TALLA_CHOISES, default='m', help_text='Ingresar la talla del perro')
     status = models.BooleanField(default=1, help_text='Habilitar si el perro está disponible para adoptar')

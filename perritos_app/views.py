@@ -24,12 +24,12 @@ from .permissions import IsAdminOrReadOnly
 # Create your views here.
 class IndexView(TemplateView):
     template_name='index.html'
-    #permission_classes = [IsAdminOrReadOnly]
-    #renderer_classes = [TemplateHTMLRenderer]
-    #serializer_class = None 
 
-    #def get(self, request):
-    #    return Response(template_name='index.html')
+class TransitaView(TemplateView):
+    template_name='transita.html'
+
+class DonaView(TemplateView):
+    template_name='dona.html'
 
 # View para listar todas las entradas o solo de a una
 class PerritosViewSet(viewsets.ModelViewSet):
@@ -91,7 +91,7 @@ class PerritosFormView(LoginRequiredMixin, FormView):
     def form_valid(self, form):
         files = self.request.FILES.getlist('file_field')
         if not files:
-            form.add_error(None, 'Debe subie al menos una imagen.')
+            form.add_error(None, 'Debe subir al menos una imagen.')
             return self.form_invalid(form)
         
         perro = form.save(commit = False)
