@@ -1,10 +1,12 @@
 from django.forms import BaseModelForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.edit import FormView, UpdateView
-from django.views.generic import TemplateView
+from django.views import generic, View
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
 from rest_framework import viewsets
@@ -17,71 +19,55 @@ from drf_spectacular.utils import extend_schema
 
 from .serializers import PerroListSerizalizer, PerroDetailSerizalizer
 from .models import Perro, PerroFotos
-from .forms import PerrosForm, PerroFotosForm
+from .forms import PerrosForm, PerroFotosForm, RegisterUserForm
 
 from .permissions import IsAdminOrReadOnly
 
 # Create your views here.
-class IndexView(TemplateView):
+class IndexView(generic.TemplateView):
     template_name='index.html'
 
-class TransitaView(TemplateView):
+class TransitaView(generic.TemplateView):
     template_name='transita.html'
 
-class DonaView(TemplateView):
+class DonaView(generic.TemplateView):
     template_name='dona.html'
 
-# View para listar todas las entradas o solo de a una
-class PerritosViewSet(viewsets.ModelViewSet):
+
+class PerritosListView(generic.ListView):
     permission_classes = [IsAdminOrReadOnly]
-    queryset = Perro.objects.all().filter(status=True).order_by('id')
-    renderer_classes = [TemplateHTMLRenderer, JSONRenderer]
-    template_name='perritos_list.html'
+    model = Perro
+    template_name = 'perritos_list copy.html'
+    context_object_name = 'perros'
+    paginate_by = 12  # Si deseas paginar la lista
 
-    def get_serializer_class(self):
-        if self.action == 'list':
-            return PerroListSerizalizer
-        if self.action == 'retrieve':
-            return PerroDetailSerizalizer
-        return super().get_serializer_class()
+    def get_queryset(self):
+        return Perro.objects.filter(status=True).order_by('id')
 
-    def render_response(self, data, request, template_name=None, context=None):
-        """Función para manejar la respuesta HTML o JSON."""
-        context = context or {}
-        if request.accepted_renderer.format == 'html':
-            return Response({**context, 'perros': data}, template_name=template_name)
-        return Response(data)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['username'] = self.request.user.username if self.request.user.is_authenticated else 'Anónimo'
+        return context
     
-    def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
-        page = self.paginate_queryset(queryset)
-        data = self.get_serializer(page or queryset, many=True).data
-        
-        if page is not None:
-            paginated_response = self.get_paginated_response(data)
-            pagination_data = {
-                'total_pages': paginated_response.data.get('count') // self.paginator.page_size + 1,
-                'current_page': self.paginator.page.number,
-                'has_next': self.paginator.page.has_next(),
-                'has_previous': self.paginator.page.has_previous(),
-            }
-            return self.render_response(data, request, template_name=self.template_name, context=pagination_data)
-        
-        return self.render_response(data, request, template_name=self.template_name)
-    
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        data = self.get_serializer(instance).data
-        return self.render_response(data, request, template_name='perrito_detail.html')
 
+class PerritoDetailView(generic.DetailView):
+    permission_classes = [IsAdminOrReadOnly]
+    model = Perro
+    template_name = 'perrito_detail copy.html'
+    context_object_name = 'perro'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['username'] = self.request.user.username if self.request.user.is_authenticated else 'Anónimo'
+        return context
 
 #View con form para cargar una nueva instancia
 class PerritosFormView(LoginRequiredMixin, FormView):
     form_class = PerrosForm
     template_name = 'perrito_create.html'
     success_url = reverse_lazy('adopta-list')
-    #login_url = "/login/"
-    #redirect_field_name = "redirect_to"
+    login_url = "index"
+    redirect_field_name = "redirect_to"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -114,8 +100,8 @@ class PerritosUpdateView(LoginRequiredMixin, UpdateView):
     form_class = PerrosForm
     template_name = 'perrito_update.html'
     success_url = reverse_lazy('adopta-list')
-    #login_url = "/login/"
-    #redirect_field_name = "redirect_to"
+    login_url = "index"
+    redirect_field_name = "redirect_to"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -127,13 +113,16 @@ class PerritosUpdateView(LoginRequiredMixin, UpdateView):
         perro = form.save(commit=False)
         perro.save()
         files = self.request.FILES.getlist('file_field')
-        if not files:
-            form.add_error(None, 'Debe subir al menos una imagen.')
-            return self.form_invalid(form)
-
-        PerroFotos.objects.filter(perro=perro).delete()
-        for f in files:
-            PerroFotos.objects.create(perro=perro, imagen=f)
+        if files:
+            # Si hay nuevos archivos, eliminar las fotos existentes y agregar las nuevas
+            PerroFotos.objects.filter(perro=perro).delete()
+            for f in files:
+                PerroFotos.objects.create(perro=perro, imagen=f)
+        else:
+            # Si no se suben nuevas fotos, no eliminar las actuales
+            if not PerroFotos.objects.filter(perro=perro).exists():
+                form.add_error(None, 'Debe mantener al menos una imagen.')
+                return self.form_invalid(form)
 
         messages.success(self.request, 'Información del perro actualizada')
         return super().form_valid(form)
@@ -141,3 +130,21 @@ class PerritosUpdateView(LoginRequiredMixin, UpdateView):
     def form_invalid(self, form):
         print(form.errors)
         return self.render_to_response(self.get_context_data(form=form))
+    
+
+## Gestion de usuarios
+class RegisterView(View):
+    form_class = RegisterUserForm
+    template_name = 'registration/register.html'
+
+    def get(self, request):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+    
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+        return render(request, self.template_name, {'form':form})
