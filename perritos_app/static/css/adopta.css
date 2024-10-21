@@ -44,6 +44,31 @@
     color: #101632dd;
 }
 
+.add{
+    margin: auto;
+    display: flex;
+    padding-top: 30px;
+}
+
+.add-link{
+    margin: auto;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 30px; /* Espaciado interno */
+    background-color: #101632cc; /* Color de fondo */
+    color: #f8f8f8;
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-decoration: none; /* Quita el subrayado */
+    border-radius: 16px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+}
+
+.add-link:hover{
+    background-color: #fd819577 ;
+    color: inherit;
+}
+
 .adopta__rescatados{
     margin: 0;
     width: 100%;

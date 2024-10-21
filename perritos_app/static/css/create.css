@@ -23,6 +23,12 @@ input, textarea, select {
     font-size: 1rem; /* Tamaño de fuente consistente */
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
 /*---- DETAILS ---- */
 
 h1{
@@ -57,12 +63,6 @@ h1{
     max-width: 600px;
 }
 
-.detail{
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 25px;
-    padding: 0;
-}
 
 
 .create__button{
@@ -87,7 +87,7 @@ label{
     padding-top: 20px;
 }
 
-input[type="checkbox"]{
+.detail input[type="checkbox"]{
     align-self: self-start;
     display: inline-block;
     width: 18px;
@@ -99,9 +99,10 @@ input[type="checkbox"]{
 
 }
 
-input[type="checkbox"]:checked{
+.detail input[type="checkbox"]:checked{
     background-color: pink;
 }
+
 
 
 /* ---- END CREATE ---- */

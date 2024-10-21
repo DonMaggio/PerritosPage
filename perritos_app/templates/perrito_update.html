@@ -1,4 +1,47 @@
-<!DOCTYPE html>
+{% extends 'nav.html' %}
+{% csrf_token %}
+
+{% block extra_meta %}<meta name="csrf-token" content="{% csrf_token %}">{% endblock %}
+
+{% block title %} {{ perro.nombre }} {% endblock %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">  <!-- CSS específico para main.html -->
+{% endblock %}
+
+{% block content %}
+<main class="dona">
+    <section id="login">
+        <h1>Nuevo Rescatado</h1>
+        <div class="detail">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div>
+                    <label for="file_field">Añadir nuevas imágenes:</label>
+                    {{ imageform.file_field }}
+                </div>
+                <button type="submit" class="create__button">Guardar cambios</button>
+            </form>
+            <!--<h2>Imágenes actuales:</h2>
+            <ul>
+                {% for foto in perro_fotos %}
+                    <li><img src="{{ foto.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}"></li>
+                {% endfor %}
+            </ul>-->
+        </div>
+    </section>
+</main>
+
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'js/create.js' %}"></script>  <!-- Script específico para main.html -->
+{% endblock %}
+
+
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

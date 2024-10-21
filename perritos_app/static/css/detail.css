@@ -89,7 +89,7 @@ h2 {
     padding-top: 40px
 }
 
-.adopta__button a{
+.adopta__button a, .adopta__button button{
     display: inline-block;
     margin: 0 auto;
     padding: 10px 30px; /* Espaciado interno */
@@ -102,7 +102,7 @@ h2 {
     border: none; /* Sin borde */
 }
 
-.adopta__button a:hover{
+.adopta__button a:hover, .adopta__button button:hover{
     background-color: #fd819577 ;
     color: inherit;
 }

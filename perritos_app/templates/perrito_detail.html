@@ -34,15 +34,18 @@
         
 
         <div class="adopta__button">
+            {% if user %}
+            <button data-item-id="{{ perros.id }}" onclick= "redirectToItem('{{ perros.id }}')" rel="noopener noreferrer">Modificar</button>
+            {% else %}
             <a href="https://docs.google.com/forms/d/1mi2Gr4Bjh9JPoa_mZPJEKXOJvXYkSc-Em3IRYvwiYF0/viewform?edit_requested=true#responses" target="_blank" rel="noopener noreferrer">Quiero Adoptar</a>
+            {% endif %}
+
         </div>
     </section>
 </main>
 
-<script>
-    function changePhoto(photoUrl) {
-        document.getElementById('main-photo').src = photoUrl;
-    }
-</script>
+{% endblock %}
 
+{% block extra_scripts %}
+    <script src="{% static 'js/detail.js' %}"></script>  <!-- Script específico para main.html -->
 {% endblock %}
