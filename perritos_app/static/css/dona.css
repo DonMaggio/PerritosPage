@@ -15,7 +15,7 @@ p{
 }
 
 .dona__header{
-    margin-top: 10rem;
+    margin-top: 7%;
     height: 10%;
     position: relative;
     overflow: hidden;
@@ -23,7 +23,7 @@ p{
 }
 
 .dona__header-img{
-    height: 70vh;
+    height: 65vh;
     width: 100%;
     object-fit: cover;
     

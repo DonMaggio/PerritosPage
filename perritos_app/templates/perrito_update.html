@@ -27,7 +27,13 @@
             <h2>Imágenes actuales:</h2>
             <ul class="img__actuales">
                 {% for foto in perro_fotos %}
-                    <li><img src="{{ foto.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}" class="img__actual"></li>
+                    <li>
+                        <img src="{{ foto.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}" class="img__actual">
+                        <label>
+                            <input type="checkbox" name="delete_fotos" value="{{ foto.id }}">
+                            Eliminar
+                        </label>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
@@ -37,7 +43,7 @@
 {% endblock %}
 
 {% block extra_scripts %}
-    <script src="{% static 'js/create.js' %}"></script>  <!-- Script específico para main.html -->
+    <script src="{% static 'js/update.js' %}"></script>  <!-- Script específico para main.html -->
 {% endblock %}
 
 

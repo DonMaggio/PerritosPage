@@ -10,3 +10,4 @@ document.addEventListener('DOMContentLoaded', function() {
         form.submit(); // Envía el formulario
     });
 });
+s

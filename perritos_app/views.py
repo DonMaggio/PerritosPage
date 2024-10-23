@@ -37,7 +37,7 @@ class DonaView(generic.TemplateView):
 class PerritosListView(generic.ListView):
     permission_classes = [IsAdminOrReadOnly]
     model = Perro
-    template_name = 'perritos_list copy.html'
+    template_name = 'perritos_list.html'
     context_object_name = 'perros'
     paginate_by = 12  # Si deseas paginar la lista
 
@@ -53,7 +53,7 @@ class PerritosListView(generic.ListView):
 class PerritoDetailView(generic.DetailView):
     permission_classes = [IsAdminOrReadOnly]
     model = Perro
-    template_name = 'perrito_detail copy.html'
+    template_name = 'perrito_detail.html'
     context_object_name = 'perro'
 
     def get_context_data(self, **kwargs):

@@ -20,7 +20,7 @@
                 <p><b>Historia: </b>{{ perro.historia }}</p>
                 <p> <b>Género: </b> {% if perro.genero == 1 %}Macho{% else %}Hembra{% endif %}</p>
                 <p><b>Edad: </b>{{ perro.edad }} años</p>
-                <p><b>Tamaño: </b>{{ perro.talla }}</p>
+                <p><b>Tamaño: </b>{% if perro.talla == 'p' %}Pequeño{% elif perro.talla == 'm' %}Mediano{% else %}Grande{% endif %}</p>
             </div>
             <div class="photo__display">
                 <img id="main-photo" src="{{ perro.fotos.first.imagen.url }}" alt="Foto de perro" style="width:400px;height:auto;">

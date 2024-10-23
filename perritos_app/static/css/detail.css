@@ -2,13 +2,9 @@
 
 h1{
     text-align: center;
-    padding-bottom: 20px;
+    margin: 0;
+    margin-bottom: 20px;
     font-size: 2rem;
-}
-
-h2 {
-    margin-bottom: 1rem;
-    text-align: center;
 }
 
 .dona{

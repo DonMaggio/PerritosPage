@@ -21,7 +21,7 @@ body.no-scroll {
     overflow: hidden;
 }
 
-body, div, ul, nav, header, footer, a, li, label,section, h1, h2, p, span{
+body, div, ul, nav, header, footer, a, li, label,section, h2, p, span{
     margin: 0;
     padding: 0;
 }
@@ -143,24 +143,25 @@ a{
 
 @container header (min-width: 600px){
     .header{
-        height: 8vh;
+        height: 7vh;
         position: fixed;
     }
 
     .header__logo-container{
-        width: 10rem;
+        width: 6rem;
     }
 
     .header__nav{
         display: block;
         position: static;
+        height: 7vh;
         width: auto;
         justify-content: space-between;
     }
     
     .header__nav-list{
         flex-direction: row;
-        height: 10rem;
+        height: 7vh;
         align-items: center;
         width:70vw;
         gap: 70px;
@@ -187,9 +188,8 @@ a{
 }
 
 .footer p, .footerlogout{
-    padding-top: 10px;
     margin: auto;
-    font-size: 0.75rem;
+    font-size: 0.77rem;
     letter-spacing: 1px;
     white-space: nowrap;
     display: inline-block;
@@ -199,17 +199,26 @@ a{
     display: inline-block;
     padding: 0;
     margin: auto;
+    font-size: 0.65rem;
+    color: #101632dd;
 }
 
 .footer-text1{
     padding: 20px 0;
     font-weight: 700;
+    text-align: center;
+    margin: auto;
 }
-
 
 .iconfooter{
     width: .9em;
     height: .75em;
+}
+
+.login{
+    font-size: 0.65rem;
+    margin: auto;
+    text-align: center;
 }
 
 

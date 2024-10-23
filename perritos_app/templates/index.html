@@ -3,23 +3,45 @@
 
 {% block extra_meta %}<meta name="csrf-token" content="{% csrf_token %}">{% endblock %}
 
-{% block title %}Bigotes Felices- Adopta{% endblock %}
+{% block title %}Bigotes Felices- Nosotros{% endblock %}
 
 {% block extra_css %}
 {% load static %}
-    <link rel="stylesheet" href="{% static 'css/adopta.css' %}">  <!-- CSS específico para main.html -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">  <!-- CSS específico para main.html -->
 {% endblock %}
 
 {% block content %}
-<main class="adopta">
-    <div class="adopta__container">
-        <div class="adopta__header">
-            <img src="../images/perro1.jpg" alt="Foto de Perra" class="adopta__header-img">
-            <div class="adopta__header-capa"></div>
-            <h1>Adoptá</h1>
+<main class="nosotros">
+    <div class="transita__container">
+        <div class="nosotros__header">
+            <img src="../static/images/gatitos4.jpg" alt="Foto de Perra" class="nosotros__header-img">
+            <div class="nosotros__header-capa"></div>
+            <h1>Nosotros</h1>
+        </div>
+        <div class="nosotros__presentacion primera">
+            <img src="../static/images/carlos.jpg" alt="Perro cachorro">
+            <div>
+                <p>En Bigotes Felices, nos dedicamos a rescatar, recuperar y transitar animales en situación de calle o vulnerabilidad en la zona sur de conurbano bonaerense. Nuestro objetivo es proporcionarles el amor y el cuidado que merecen, buscando familias responsables que estén listas para adoptarlos.
+                </p>
+                <p class="parrafos">Nuestra organización comenzó con un pequeño grupo de amantes de los animales que se unieron para hacer la diferencia. Desde entonces, hemos rescatado a cientos de animales, ayudándoles a encontrar un hogar lleno de cariño. 
+                </p>
+            </div>
+        </div>
+        <div class="nosotros__presentacion">
+            <div>
+                <p>Nuestro proceso de rescate comienza con la identificación de animales en riesgo. Trabajamos con hogares de tránsito que brindan un ambiente seguro para su recuperación, y buscamos adopciones responsables para cada uno de nuestros rescatados.
+                </p>
+                <p class="parrafos">Tu apoyo es crucial para nuestra labor. Ya sea a través de donaciones, ofreciendo tu hogar como tránsito o convirtiéndote en voluntario, cada gesto cuenta. Juntos, podemos construir un futuro mejor para nuestros amigos de cuatro patas.
+                </p>
+            </div>
+            <img src="../static/images/perro8.jpg" alt="Perro cachorro">
+        </div>
+        <div class="nosotros__pregunta">
+            <p>
+                <b>¡Te invitamos a unirte a Bigotes Felices para que juntos podamos seguir haciendo la diferencia, ellos nos necesitan! </b>
+            </p>
         </div>
     </div>
-
 </main>
 
 {% endblock %}
