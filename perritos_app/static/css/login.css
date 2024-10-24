@@ -2,6 +2,7 @@
 
 .main__login{
     font-family: 'poppins', sans-serif;
+    min-height: 81vh;
     container-name: adopta;
     container-type: inline-size;
     display: flex;
@@ -16,6 +17,7 @@
 #login {
     margin: auto;
     margin-top: 50px;
+    
     display: flex;
     flex-direction: column;
     background-color: #fcfcfc;
