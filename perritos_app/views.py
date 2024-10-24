@@ -17,6 +17,8 @@ from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer, BrowsableAPIRenderer
 from drf_spectacular.utils import extend_schema
 
+import json
+
 from .serializers import PerroListSerizalizer, PerroDetailSerizalizer
 from .models import Perro, PerroFotos
 from .forms import PerrosForm, PerroFotosForm, RegisterUserForm
@@ -112,14 +114,25 @@ class PerritosUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         perro = form.save(commit=False)
         perro.save()
+
+        # Capturar los IDs de las imágenes que se seleccionaron para eliminar
+        delete_ids = self.request.POST.get('delete_fotos')
+        if delete_ids:
+            delete_ids = json.loads(delete_ids)  # Convertir de JSON a lista de IDs
+            #PerroFotos.objects.filter(id__in=delete_ids, perro=perro).delete()
+            for foto_id in delete_ids:
+                foto = PerroFotos.objects.get(id=foto_id)
+                foto.delete()  # Esto invocará el método delete del modelo y eliminará la imagen del disco
+
+        # Procesar los archivos nuevos si existen
         files = self.request.FILES.getlist('file_field')
         if files:
-            # Si hay nuevos archivos, eliminar las fotos existentes y agregar las nuevas
-            PerroFotos.objects.filter(perro=perro).delete()
+            # Si hay nuevos archivos, agregar las nuevas fotos
             for f in files:
                 PerroFotos.objects.create(perro=perro, imagen=f)
+        
         else:
-            # Si no se suben nuevas fotos, no eliminar las actuales
+            # Validar que al menos haya una imagen asociada al perro
             if not PerroFotos.objects.filter(perro=perro).exists():
                 form.add_error(None, 'Debe mantener al menos una imagen.')
                 return self.form_invalid(form)
@@ -130,7 +143,6 @@ class PerritosUpdateView(LoginRequiredMixin, UpdateView):
     def form_invalid(self, form):
         print(form.errors)
         return self.render_to_response(self.get_context_data(form=form))
-    
 
 ## Gestion de usuarios
 class RegisterView(View):
