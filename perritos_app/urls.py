@@ -21,10 +21,10 @@ urlpatterns = [
 
     path('perro/', PerritosListView.as_view(), name='adopta-list'),
     path('perro/<int:pk>/', PerritoDetailView.as_view(), name='adopta-detail'),
-    path('nosotros', IndexView.as_view(), name='index'),
-    path('transita', TransitaView.as_view(), name='transita'),
-    path('dona', DonaView.as_view(), name='dona'),
-    path('perro/create', PerritosFormView.as_view(), name='perro-create'),
+    path('nosotros/', IndexView.as_view(), name='index'),
+    path('transita/', TransitaView.as_view(), name='transita'),
+    path('dona/', DonaView.as_view(), name='dona'),
+    path('perro/create/', PerritosFormView.as_view(), name='perro-create'),
     path('perro/update/<int:pk>', PerritosUpdateView.as_view(), name='perro-update'),
 
     #Gestion de usuarios
