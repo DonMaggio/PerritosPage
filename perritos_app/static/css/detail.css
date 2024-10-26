@@ -7,6 +7,7 @@ h1{
     font-size: 2rem;
 }
 
+
 .dona{
     container-name: adopta;
     container-type: inline-size;
@@ -72,6 +73,9 @@ h1{
 }
 
 .thumbnail {
+    max-height: 100px;
+    aspect-ratio: 2 / 2;
+    object-fit: cover;
     cursor: pointer;
     transition: transform 0.2s; /* Efecto al pasar el mouse */
     border-radius: 8px;

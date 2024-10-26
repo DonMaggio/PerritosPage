@@ -13,7 +13,7 @@
 {% block content %}
 <main class="dona">
     <section id="login">
-        <h1>Modificar datos de {{perro.nombre}}</h1>
+        <h1>Modificar datos de {{perro.nombre|upper}}</h1>
         <div class="detail">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -29,10 +29,10 @@
                 {% for foto in perro_fotos %}
                     <li>
                         <img src="{{ foto.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}" class="img__actual">
-                        <label>
-                            <input type="checkbox" name="delete_fotos" value="{{ foto.id }}">
-                            Eliminar
-                        </label>
+                        <div class="img__actual-eliminar">
+                            <input type="checkbox" name="delete_fotos" value="{{ foto.id }}" >
+                            <label for="delete_fotos">Eliminar</label>
+                        </div>    
                     </li>
                 {% endfor %}
             </ul>
