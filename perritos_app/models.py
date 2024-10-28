@@ -34,8 +34,8 @@ class Perro(models.Model):
 
 class PerroFotos(models.Model):
     perro = models.ForeignKey(Perro, related_name='fotos', on_delete=models.CASCADE)
-    #imagen = models.ImageField(upload_to='perritos_app/images')
-    imagen = CloudinaryField('image', resource_type='image', blank=True, null=True)
+    #imagen = models.ImageField(upload_to='imagen')
+    imagen = CloudinaryField('imagen')
 
     def __str__(self):
         return f'Foto de {self.perro.nombre}'
