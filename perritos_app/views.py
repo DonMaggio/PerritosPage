@@ -95,7 +95,6 @@ class PerritosFormView(LoginRequiredMixin, FormView):
         print(form.errors)
         return self.render_to_response(self.get_context_data(form=form))
 
-
 #View con form para editar las entradas
 class PerritosUpdateView(LoginRequiredMixin, UpdateView):
     model = Perro
