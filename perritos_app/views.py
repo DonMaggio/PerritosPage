@@ -1,25 +1,15 @@
-from django.forms import BaseModelForm
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.edit import FormView, UpdateView
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from rest_framework import viewsets
-from rest_framework.views import APIView
-from rest_framework import status
-from rest_framework import generics
-from rest_framework.response import Response
-from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer, BrowsableAPIRenderer
 from drf_spectacular.utils import extend_schema
 
 import json
 
-from .serializers import PerroListSerizalizer, PerroDetailSerizalizer
 from .models import Perro, PerroFotos
 from .forms import PerrosForm, PerroFotosForm, RegisterUserForm
 
