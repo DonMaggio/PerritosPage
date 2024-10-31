@@ -148,6 +148,58 @@ p{
     padding: 4px;
 }
 
+/* ---- DONA QUERIES ---- */
+
+
+
+@media (max-width: 1110px){
+    .dona__presentacion{
+        flex-direction: column-reverse;
+        padding: 0px;
+        padding-top: 40px;
+        margin: auto;
+        gap: 40px;
+    }
+
+    .dona__titulo{
+        padding: 10px 0;
+    }
+
+    
+    .dona__opciones{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-around;
+        padding-top: 20px;
+    }
+
+    .dona__opcion{
+        width: 80vw;
+    }
+
+    .dona__opcion{
+        padding: 40px 20px;
+    }
+
+    .dona__insumos-lista{
+        padding: 20px;
+    }
+}
+
+@media (max-width: 700px){
+
+    .dona__header-img{
+        height: 40vh;
+        object-fit: cover;
+    }
+
+    .dona__header h1{
+        font-size: 4rem;
+    }
+
+}
+
 
 
 /* ---- END DONA ---- */

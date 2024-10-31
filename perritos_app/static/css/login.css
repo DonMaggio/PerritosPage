@@ -17,7 +17,6 @@
 #login {
     margin: auto;
     margin-top: 50px;
-    
     display: flex;
     flex-direction: column;
     background-color: #fcfcfc;
@@ -79,4 +78,15 @@ input {
     background-color: #3f6ea1bb;
 }
 
+/* ---- LOGIN QUERIES ---- */
+
+@media (max-width: 700px){
+
+    #login{
+        margin-top: 0;
+        width: 90vw;
+        margin: auto;
+
+    }
+}
 /* ---- END LOGIN ---- */

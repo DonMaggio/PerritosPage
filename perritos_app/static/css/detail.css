@@ -111,5 +111,41 @@ h1{
 }
 
 
-/* ---- END LOGIN ---- */
+/* ---- DETAILS QUERIES ---- */
+
+@media (max-width: 900px){
+
+    .dona{
+        padding-top: 50px;
+    }
+
+    .detail{
+        flex-direction: column;
+    }
+
+    .thumbnail-gallery {
+        padding-top: 40px;
+        justify-content: space-evenly;
+    }
+
+    
+}
+
+
+@media (max-width: 550px){
+
+    #main-photo{
+        border-radius: 16px;
+        max-height: 280px;
+        max-width: 65vw;
+    }
+
+    .thumbnail {
+        max-height: 90px;
+        width: auto;
+    }
+
+}
+
+/* ---- END DETAILS ---- */
 

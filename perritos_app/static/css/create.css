@@ -131,6 +131,25 @@ label{
     margin-right: 4px;
 }
 
+/* ---- CREATE QUERIES---- */
+
+@media (max-width: 700px){
+
+    .dona{
+        padding-top: 70px;
+    }
+
+    h1{
+        font-size: 1.8rem;
+    }
+
+    .img__actuales{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        grid-template-rows: repeat(autofill,auto);
+    }
+
+}
 
 
 

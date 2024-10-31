@@ -102,5 +102,33 @@ p{
     padding: 0;
 }
 
+/* ---- TRANSITA QUERIES ---- */
+
+@media (max-width: 1110px){
+    .transita__presentacion{
+        flex-direction: column-reverse;
+        padding: 0px;
+        padding-top: 40px;
+        margin: auto;
+        gap: 40px;
+    
+    }
+
+}
+
+@media (max-width: 700px){
+
+    .transita__header-img{
+        height: 40vh;
+        object-fit: cover;
+    }
+
+    .transita__header h1{
+        font-size: 4rem;
+    }
+
+}
+
+
 
 /* ---- END TRANISTA ---- */

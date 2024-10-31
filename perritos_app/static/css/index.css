@@ -79,5 +79,34 @@
 }
 
 
+/* ---- NOSOTROS QUERIES ---- */
+
+@media (max-width: 1110px){
+
+    .nosotros__presentacion{
+        flex-direction: column;
+        padding: 0px;
+        padding-top: 40px;
+        margin: auto;
+        gap: 40px;
+    
+    }
+
+}
+
+@media (max-width: 700px){
+
+    .nosotros__header-img{
+        height: 40vh;
+        object-fit: cover;
+    }
+
+    .nosotros__header h1{
+        font-size: 4rem;
+    }
+
+}
+
+
 
 /* ---- END NOSOTROS ---- */

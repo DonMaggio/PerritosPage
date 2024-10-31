@@ -1,4 +1,7 @@
 from django.db import models
+import os
+
+from web_perritos import settings
 
 GENERO_CHOICES = (
     (1, 'Macho'),
@@ -33,3 +36,11 @@ class PerroFotos(models.Model):
 
     def __str__(self):
         return f'Foto de {self.perro.nombre}'
+    
+    def delete(self, *args, **kwargs):
+        # Elimina el archivo del sistema de archivos antes de eliminar la instancia
+        if self.imagen:
+            file_path = os.path.join(settings.MEDIA_ROOT, self.imagen.name)
+            if os.path.exists(file_path):
+                os.remove(file_path)
+        super().delete(*args, **kwargs)
